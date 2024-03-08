@@ -29,7 +29,7 @@ class todoItem {
     this.dueDate = newDueDate;
   }
 
-  editPriority(newPriority: number) {
+  editPriority(newPriority: string) {
     this.priority = newPriority;
   }
 

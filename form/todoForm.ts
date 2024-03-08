@@ -15,6 +15,7 @@ todoForm.addEventListener('submit', (e) => {
   const newTodo = new todoItem(title.value, completed.checked, new Date(dueDate.value), priority.value, notes.value);
 
   todoList.push(newTodo);
+  localStorage.setItem('todoList', JSON.stringify(todoList));
 
   console.log(newTodo.getDetails());
   console.log(todoList);
