@@ -2,6 +2,11 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
+import todoItem from './todoItem.ts'
+
+
+const test = new todoItem('test', false, new Date(), 1, 'test');
+console.log(test.getDetails());
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -22,3 +27,5 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+
