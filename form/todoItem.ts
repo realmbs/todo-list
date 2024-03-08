@@ -2,10 +2,10 @@ class todoItem {
   title: string;
   completed: boolean;
   dueDate?: Date;
-  priority?: number;
+  priority?: string;
   notes?: string;
 
-  constructor(title: string, completed: boolean, dueDate?: Date, priority?: number, notes?: string) {
+  constructor(title: string, completed: boolean, dueDate?: Date, priority?: string, notes?: string) {
     this.title = title;
     this.completed = completed;
     this.dueDate = dueDate;
