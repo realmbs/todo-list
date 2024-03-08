@@ -1,31 +1,16 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 import todoItem from './todoItem.ts'
 
-
+const app = document.getElementById('app') as HTMLDivElement;
 const test = new todoItem('test', false, new Date(), 1, 'test');
+
+const todoCard = document.createElement('div');
+todoCard.classList.add('todo__card');
+
+const todoTitle = document.createElement('h3');
+todoTitle.textContent = test.title;
+todoCard.appendChild(todoTitle);
+
+app.appendChild(todoCard);
+
 console.log(test.getDetails());
-
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-
-
