@@ -14,9 +14,13 @@ todoList.forEach(todo => {
   title.innerText = todo.title;
   todoDiv.appendChild(title);
 
+  const completedDiv = document.createElement('div') as HTMLDivElement;
+  completedDiv.classList.add('completed');
+
   const completed = document.createElement('p') as HTMLParagraphElement;
   completed.innerText = todo.completed ? 'Completed' : 'Not Completed';
-  todoDiv.appendChild(completed);
+  completedDiv.appendChild(completed);
+  todoDiv.appendChild(completedDiv);
 
   const checkBox = document.createElement('input') as HTMLInputElement;
   checkBox.type = 'checkbox';
@@ -26,7 +30,7 @@ todoList.forEach(todo => {
     completed.innerText = todo.completed ? 'Completed' : 'Not Completed';
     localStorage.setItem('todoList', JSON.stringify(todoList));
   });
-  todoDiv.appendChild(checkBox);
+  completedDiv.appendChild(checkBox);
 
   const dueDate = document.createElement('p') as HTMLParagraphElement;
   dueDate.innerText = `Due Date: ${todo.dueDate}`;

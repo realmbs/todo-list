@@ -34,9 +34,21 @@
 #app {
   margin-top: 2rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .todo {
+  display: flex;
+  flex-direction: column;
   border-radius: 6px;
   border: 1px solid rebeccapurple;
+  width: 20vw;
+  height: auto;
+}
+
+.completed {
+  display: flex;
+  justify-content: space-between
 }
