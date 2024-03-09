@@ -18,6 +18,9 @@
   justify-content: space-between;
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color: #242424;
+  border-radius: 6px;
+  border: 1px solid rebeccapurple;
 }
 
 #nav a {
@@ -26,4 +29,14 @@
 
 #nav a:hover {
   text-decoration: underline;
+}
+
+#app {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.todo {
+  border-radius: 6px;
+  border: 1px solid rebeccapurple;
 }

@@ -15,17 +15,22 @@ todoList.forEach(todo => {
   todoDiv.appendChild(title);
 
   const completed = document.createElement('p') as HTMLParagraphElement;
-  completed.innerText = `Completed: ${todo.completed}`;
+  completed.innerText = todo.completed ? 'Completed' : 'Not Completed';
   todoDiv.appendChild(completed);
+
+  const checkBox = document.createElement('input') as HTMLInputElement;
+  checkBox.type = 'checkbox';
+  checkBox.checked = todo.completed;
+  checkBox.addEventListener('change', () => {
+    todo.completed = checkBox.checked;
+    completed.innerText = todo.completed ? 'Completed' : 'Not Completed';
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+  });
+  todoDiv.appendChild(checkBox);
 
   const dueDate = document.createElement('p') as HTMLParagraphElement;
   dueDate.innerText = `Due Date: ${todo.dueDate}`;
-
-  if (todo.dueDate) {
-    todoDiv.appendChild(dueDate);
-  } else {
-    dueDate.style.display = 'none';
-  }
+  todoDiv.appendChild(dueDate);
 
   const priority = document.createElement('p') as HTMLParagraphElement;
   priority.innerText = `Priority: ${todo.priority}`;
@@ -34,6 +39,16 @@ todoList.forEach(todo => {
   const notes = document.createElement('p') as HTMLParagraphElement;
   notes.innerText = `Notes: ${todo.notes}`;
   todoDiv.appendChild(notes);
+
+  const deleteButton = document.createElement('button') as HTMLButtonElement;
+  deleteButton.innerText = 'Delete';
+  deleteButton.addEventListener('click', () => {
+    const index = todoList.indexOf(todo);
+    todoList.splice(index, 1);
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    app.removeChild(todoDiv);
+  });
+  todoDiv.appendChild(deleteButton);
 
   app.appendChild(todoDiv);
 })
